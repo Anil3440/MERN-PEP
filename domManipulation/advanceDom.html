@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+</style>
+</head>
+<body>
+
+<h1>Click anywhere</h1>
+
+<script>
+    console.log("JS LOADED");
+
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log("DOM READY");
+
+        let body = document.body;
+        let color = 'red';
+        body.style.backgroundColor = color;
+
+        body.addEventListener('click', () => {
+            console.log("CLICKED");
+            color = (color === 'red') ? 'blue' : 'red';
+            body.style.backgroundColor = color;
+        });
+    });
+</script>
+
+</body>
+</html>

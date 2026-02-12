@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+    #root children{
+        color: blue,
+    }
+</style>
+</head>
+<body>
+    <div id="root">Hello from root</div>
+</body>
+</html>
+<script type="text/babel">
+    // let arr = ['hello','namaste','ola','konnichiwa'];
+    // const div = React.createElement('ol',{
+    //     style: {backgroundColor: 'red'},
+    // },arr.map(i=>{
+    //     let li = React.createElement('li',null,i);
+    //     return li;
+    // }));
+
+    // const btn = React.createElement('button',{
+    //     onClick: alertBtn
+    // },'Alert button');
+
+    // function alertBtn(){
+    //     alert('Hello from react');
+    // }
+
+    //jsx using babel ->
+
+    function Greet({name,age}){
+        return(
+            <>
+                <h1>Name: {name} aged: {age}</h1>
+            </>
+        );
+    }
+
+    function App(){
+        return(
+            <>
+                <Greet name="Anil" age={20}/>
+                {
+                    Greet({
+                        name: "Anil Kumar",
+                        age: 21,
+                    })
+                }
+            </>
+        );
+    }
+    
+    let root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>

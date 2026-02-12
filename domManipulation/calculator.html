@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #calc{
+            height: 300px;
+            width: 300px;
+            border: 2px solid black;   
+        }
+        #input{
+            height: 35px;
+            width: 280px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="calc">
+        <input type="number" id="input" />
+        <button onclick="sum()" id="sum">+</button>
+        <button onclick="sub()" id="sub">-</button>
+        <button onclick="prod()" id="prod">*</button>
+        <button onclick="divide()" id="div">/</button>
+        <button onclick="res()" id="ans">=</button>
+        <button onclick="clear()" id="clear">Clear</button>
+    </div>
+</body>
+</html>
+<script>
+    let ans = null;
+
+    function getVal(){
+        return Number(document.getElementById('input').value);
+    }
+
+    function clearInput(){
+        document.getElementById('input').value = '';
+    }
+
+    function sum(){
+        let a = getVal();
+        if(ans === null) ans = a;
+        else ans += a;
+        clearInput();
+    }
+
+    function sub(){
+        let a = getVal();
+        if(ans === null) ans = a;
+        else ans -= a;
+        clearInput();
+    }
+
+    function prod(){
+        let a = getVal();
+        if(ans === null) ans = a;
+        else ans *= a;
+        clearInput();
+    }
+
+    function divide(){
+        let a = getVal();
+        if(a === 0){
+            alert("Cannot divide by zero");
+            return;
+        }
+        if(ans === null) ans = a;
+        else ans /= a;
+        
+    }
+
+    function res(){
+        document.getElementById('input').value = ans;
+        ans = null;
+    }
+
+    function clear(){
+        document.getElementById('input').value = '';
+        ans = null;
+    }
+</script>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="enter text here"/>
+    <p id="text">Text with changing color</p>
+</body>
+</html>
+<script>
+    colorText = (e) => {
+        let text = document.getElementById('text');
+        text.style.color = e.target.value;    
+    }
+    document.getElementById('input').addEventListener('input',colorText);
+</script>

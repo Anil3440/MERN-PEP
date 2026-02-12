@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root">Dom</div>
+</body>
+</html>
+<script type="text/babel">
+
+    let root = ReactDOM.createRoot(document.getElementById('root'));
+
+    function App(){
+        
+        const [data, setData] = React.useState([]);
+        const [movie, setMovie] = React.useState('');
+        
+        async function fetchData(){
+            try{
+                console.log('fetching');
+                let response = await fetch('https://pepproject-anil-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json');
+                console.log('fetched');
+                let result = await response.json();
+                
+                // Fixed: Correctly transform the object
+                const movieArr = Object.entries(result).map(([id, movieData]) => {
+                    return {id, ...movieData};
+                });
+                
+                setData(movieArr);
+                console.log(movieArr);
+                
+            } catch(err){
+                console.log('Error: ' + err.message);
+            }
+        }
+        
+        async function addMovie(){
+            try{
+                let response = await fetch('https://pepproject-anil-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json',{
+                    method: 'POST',
+                    body: JSON.stringify({title: movie}),  // Send as object with title property
+                    headers: {"Content-Type": "application/json"}
+                });
+                let result = await response.json();
+                console.log('Movie added:', result);
+                
+                // Optionally fetch data again to update the list
+                // fetchData();
+                setMovie('');  // Clear input
+            } catch(err){
+                console.log(err.message);
+            }
+        }
+
+        return(
+            <>
+                <h1>Fetching Data from Api :</h1>
+                <input
+                    type='text'
+                    value={movie}
+                    placeholder='enter movie name'
+                    onChange={(e) => {
+                        setMovie(e.target.value);
+                    }}
+                />
+                
+                <button onClick={addMovie}>Add Movie</button>
+                <button onClick={fetchData}>Fetch data</button>
+                
+                <ul>
+                    {
+                        data.map(el => (
+                            <li key={el.id}>{el.title}</li>
+                        ))
+                    }
+                </ul>
+            </>
+        );
+    }
+    
+    root.render(<App />)
+</script>

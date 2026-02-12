@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        #user{
+            color: aqua;
+            background-color: black;
+            box-shadow: 5px 5px 15px aqua;
+        }
+        #admin{
+            color: gold;
+            background-color: black;
+            box-shadow: 5px 5px 15px gold;
+        }
+        .card{
+            border: solid black 2px;
+            width: 200px;
+            border-radius: 5px;
+            margin: 15px;
+            text-align: center;
+            font-size: large;
+            font: bolder;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
+<script type="text/babel">
+
+    let root = ReactDOM.createRoot(document.getElementById('root'));
+
+    function UserProfile({name,age,role}){
+        return(
+            <div id={role} class="card">
+                <p>Name: {name}</p>
+                <p>Age: {age}</p>
+                <p>Role: {role}</p>
+            </div>
+        );
+    }
+
+    function App(){
+        return(
+            <>
+                <UserProfile name="Anil" age="21" role="admin"/>
+                <UserProfile name="Aditya" age="21" role="user"/>
+            </>
+        );
+    }
+    
+    root.render(<App />)
+</script>

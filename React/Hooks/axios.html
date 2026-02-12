@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <div id="root">Dom</div>
+</body>
+</html>
+
+<script type="text/babel">
+
+    let root = ReactDOM.createRoot(document.getElementById('root'));
+
+    function App(){
+        
+        const [fetched, setFetched] = React.useState([]);
+
+        async function fetchData(){
+            
+            await axios.get('https://jsonplaceholder.typicode.com/posts')
+                .then(response=>{
+                    setFetched(response.data);
+                    
+                })
+                .catch(err=>{
+                    console.log('Error: '+err.message);
+                    
+                })
+        }
+
+        return(
+            <>
+                <button onClick={fetchData}>fetch data</button>
+                <ul>
+                    {
+                        fetched.slice(0,10).map((el,idx)=>{
+                            return <li>{el.title}</li>
+                        })
+                    }
+                </ul>
+                
+            </>
+        );
+    }
+    
+    root.render(<App />)
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent">
+        <p>p tag inside div</p>
+    </div>
+    <p class="pTag" id="p1">This is p1 tag</p>
+    <p class="pTag" id="p2">This is p2 tag</p>
+    <p class="pTag">This is p3 tag</p>
+</body>
+</html>
+<script>
+    let a = 10;
+    console.log(a);
+    const div = document.getElementById("parent");
+    console.log(div);
+    const el = document.getElementsByClassName('pTag');
+    console.log(el);
+
+    // let value = document.querySelector('.pTag');
+    // console.log(value.innerHTML);
+
+    let val1 = document.querySelectorAll('.pTag');//returns a node list instead of html collection.
+    let count = 0;
+    val1.forEach(i=>{
+        if(count%2===0){
+            i.style.color = 'red';
+            count++;
+        }else{
+            i.style.color = 'blue';
+            count++;
+        }
+    });
+
+    let p1 = document.querySelectorAll('div p');
+    console.log(p1[0].innerText);
+</script>
+
+<!-- //getElementById
+//getElementsByClassName
+//getElemetsByTagName
+//querySelector
+//querySelectorAll -->

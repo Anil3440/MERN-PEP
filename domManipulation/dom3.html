@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let nav = document.createElement('nav');
+    nav.style.width = 'screen';
+    nav.style.height = '50px';
+    nav.style.border = '2px solid green'
+    document.body.append(nav);
+
+    let home = document.createElement('a');
+    home.className = 'a';
+    home.innerText = 'Home';
+
+    let messages = document.createElement('a');
+    messages.innerText = 'messages';
+    messages.className = 'a';
+
+    let reels = document.createElement('a');
+    reels.innerText = 'reels';
+    reels.className = 'a';
+
+    let settings = document.createElement('a');
+    settings.innerText = 'settings';
+    settings.className = 'a';
+
+    nav.append(home,messages,reels,settings);
+
+    let navContent = document.querySelectorAll('.a');
+    navContent.forEach(i=>{
+        i.style.cursor = 'pointer';
+        i.style.textDecoration = 'none';
+        i.style.fontWeight = 'bold';
+        i.style.color = 'blue';
+        i.style.margin = '40px'
+    });
+
+</script>
+

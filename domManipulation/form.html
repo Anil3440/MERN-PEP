@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="./submit" id="form">
+        <label>Name: </label><input type="text" placeholder="name" name="name" required />
+        <label>E-mail: </label><input type="text" placeholder="email" name="email" required />
+        <label>Password: </label><input type="password" placeholder="password" name="password" />
+        <button id="btn" type="submit">Submit</button>
+    </form>
+</body>
+</html>
+<script>
+    let form = document.getElementById('form');
+    let data = {};
+    submitForm = (e) =>{
+        e.preventDefault();
+        // let name = form.elements['name'].value;
+        let name = document.querySelector('input[name = "name"]').value;
+        let email = form.elements['email'].value;
+        let password = document.querySelector('input[name = "password"]').value;
+        data['name'] = name;
+        data['email'] = email;
+        data['password'] = password;
+        console.log(data);
+    }
+    form.addEventListener('submit', submitForm);
+</script>

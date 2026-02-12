@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <ul class = 'ul'>
+        <li id="1" class = 'items'>list item 1</li>
+        <li id="2" class = 'items'>list item 2</li>
+        <li id="3" class = 'items'>list item 3</li>
+        <li id="4" class = 'items'>list item 4</li>
+        <li id="5" class = 'items'>list item 5</li>
+    </ul> -->
+</body>
+</html>
+<script>
+    for(let i=0;i<5;i++){
+
+        let parent = document.createElement('div');
+        parent.id = 'div1';
+        parent.style.width = '200px';
+        parent.style.height = '200px';
+        parent.style.border = '2px solid blue'   
+        
+        let img = document.createElement('img');
+        img.src = 'img1.jpg';
+        img.alt = 'demo img';
+        img.style.width = '100px';
+        img.style.height = '100px';
+        
+        parent.innerHTML = '<p><b>Card 1.</b></p>';
+        parent.append(img);
+        document.body.append(parent);
+    }
+    document.body.style.display = 'flex';
+    document.body.style.gap = '5px';
+    
+
+    // let items = document.querySelectorAll('.items');
+    // items.forEach(i=>{
+    //     console.log(i.id);
+    // });
+
+    // let div = document.createElement('div');
+    // div.innerText = 'Hello from div';
+    // document.body.append(div);
+    // let p = document.createElement('p');
+    // p.innerText = 'hello from p';
+    // document.body.insertBefore(p,div);
+
+</script>
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root">Dom</div>
+</body>
+</html>
+<script type="text/babel">
+
+    let root = ReactDOM.createRoot(document.getElementById('root'));
+
+    function UserForm(){
+        let obj = {
+            name: '',
+            email: '',
+            password: '',
+            gender: ''
+        }
+        const [info,setInfo] = React.useState(obj);
+        function handleSubmit(e){
+            e.preventDefault();
+            alert(`form submitted for user: ${info.name}`);
+            setInfo(obj);
+            console.log(info);
+        }
+        return(
+            <>
+                <h1>Simple form</h1>
+                <form onSubmit = {handleSubmit}>
+                    <label>Enter your name:</label>
+                    <input type="text" name = "name" value = {info.name} placeholder = "enter your name" onChange = {(e)=>{
+                        setInfo(prev => ({
+                            ...prev,
+                            name: e.target.value
+                        }));
+                    }} />
+                    <br />
+                    <label>Enter your email:</label>
+                    <input type="email" name = "email" value = {info.email} placeholder = "enter your email" onChange = {(e)=>{
+                        setInfo(prev => ({
+                            ...prev,
+                            email: e.target.value
+                        }));
+                    }} />
+                    <br />
+                    <label>Enter your password:</label>
+                    <input type="text" name = "password" value = {info.password} placeholder = "enter your password" onChange = {(e)=>{
+                        setInfo(prev => ({
+                            ...prev,
+                            password: e.target.value
+                        }));
+                    }} />
+                    <br />
+                    <label>Select your gender:</label>
+                    <select onChange = {(e)=>{
+                        setInfo(prev => ({
+                            ...prev,
+                            gender: e.target.value
+                        }));
+                    }}>
+                        <option value="null">Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="non-binary">Non-Binary</option>
+                    </select>
+                    <br />
+                    
+                    <button type = "Submit">Submit</button>
+                </form>
+                <p id="details"></p>
+            </>
+        )
+    }
+
+    function App(){
+        return(
+            <>
+                <UserForm />
+            </>
+        );
+    }
+    
+    root.render(<App />)
+</script>

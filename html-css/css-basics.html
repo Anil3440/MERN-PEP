@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #d1{
+            height: 500px;
+            width: 500px;
+            padding: 10px;
+            background-color: whitesmoke;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 5px;
+            border: 1px solid black;
+        }
+
+        .parent{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .div{
+            background-color: greenyellow;
+            height: 100px;
+            width: 100px;
+            box-shadow: 2px 2px 4px green;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1" >
+        <div class="parent">
+            <div id="d2" class="div"></div>
+            <div id="d2" class="div"></div>
+        </div>
+        <div class="parent">
+            <div id="d2" class="div"></div>
+            <div id="d2" class="div"></div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

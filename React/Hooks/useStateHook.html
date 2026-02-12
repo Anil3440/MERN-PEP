@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
+<script type="text/babel">
+
+    let root = ReactDOM.createRoot(document.getElementById('root'));
+
+    
+    function Counter(){
+        const[count,setCount] = React.useState(0);
+        let val = 0;
+        function incCount(){
+            setCount(prev => prev+1);
+            setCount(prev => prev+1);
+            setCount(prev => prev+1);
+        }
+        function decCount(){
+            if(count === 0) return;
+            setCount(prev => prev-1);
+        }
+        return (
+            <>
+                <h1>Counter</h1>
+                <h2>Count: {count}</h2>
+                <button onClick = {incCount}>Increase</button>
+                <button onClick = {decCount}>Decrease</button>
+            </>
+        )
+    }
+
+    function App(){
+        return(
+            <>
+                <Counter />  
+            </>
+        );
+    }
+    
+    root.render(<App />)
+</script>

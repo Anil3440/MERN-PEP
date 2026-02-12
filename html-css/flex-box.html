@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-box</title>
+    <style>
+        img{
+            height: 250px;
+            width: 250px;
+        }
+        header{
+            height: 50px;
+            background-color: gray;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+        }
+        #container{
+            margin: 10px;
+        }
+        #container div{
+            display: flex;
+            justify-content: space-around;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p>Home</p>
+        <p>About</p>
+        <p>Contact</p>
+    </header>
+    <div id="container">
+        <div>
+            <img src="./cat.jpg" alt="">
+            <img src="./cat.jpg" alt="">
+            <img src="./cat.jpg" alt="">
+            <img src="./cat.jpg" alt="">
+        </div>
+        <div>
+            <img src="./cat.jpg" alt="">
+            <img src="./cat.jpg" alt="">
+            <img src="./cat.jpg" alt="">
+            <img src="./cat.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
